@@ -29,7 +29,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="css/owl.carousel.min.css">
     <link rel="stylesheet" href="css/owl.theme.default.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css" media="screen">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css"
+        media="screen">
     <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script><![endif]-->
@@ -101,7 +102,8 @@
                             <span>All New Phones </span>
                             <h1>up to 25% Flat Sale</h1>
                             <p>It is a long established fact that a reader will be distracted by the readable content
-                                <br> of a page when looking at its layout. The point of using Lorem Ipsum is that</p>
+                                <br> of a page when looking at its layout. The point of using Lorem Ipsum is that
+                            </p>
                             <a class="buynow" href="#">Buy Now</a>
                             <ul class="social_icon">
                                 <li> <a href="#"><i class="fa fa-facebook-f"></i></a></li>
@@ -118,7 +120,8 @@
                             <span>All New Phones </span>
                             <h1>up to 25% Flat Sale</h1>
                             <p>It is a long established fact that a reader will be distracted by the readable content
-                                <br> of a page when looking at its layout. The point of using Lorem Ipsum is that</p>
+                                <br> of a page when looking at its layout. The point of using Lorem Ipsum is that
+                            </p>
                             <a class="buynow" href="#">Buy Now</a>
                             <ul class="social_icon">
                                 <li> <a href="#"><i class="fa fa-facebook-f"></i></a></li>
@@ -135,7 +138,8 @@
                             <span>All New Phones </span>
                             <h1>up to 25% Flat Sale</h1>
                             <p>It is a long established fact that a reader will be distracted by the readable content
-                                <br> of a page when looking at its layout. The point of using Lorem Ipsum is that</p>
+                                <br> of a page when looking at its layout. The point of using Lorem Ipsum is that
+                            </p>
                             <a class="buynow" href="#">Buy Now</a>
                             <ul class="social_icon">
                                 <li> <a href="#"><i class="fa fa-facebook-f"></i></a></li>
@@ -168,13 +172,16 @@
                     <div class="about_box">
                         <h3>About Us</h3>
                         <span>Our Mobile Shop</span>
-                        <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of It is a long established fact that a reader will be distracted by the </p>
+                        <p>It is a long established fact that a reader will be distracted by the readable content of a
+                            page when looking at its layout. The point of It is a long established fact that a reader
+                            will be distracted by the readable content of a page when looking at its layout. The point
+                            of It is a long established fact that a reader will be distracted by the </p>
 
                     </div>
-               
+
+                </div>
             </div>
         </div>
-    </div>
     </div>
     <!-- end about -->
 
@@ -196,12 +203,32 @@
                     <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 margin">
                         <div class="brand_box">
                             <img src="images/<%= item.image %>" alt="img" />
-                            <h3>$<strong class="red"><%= item.price %></strong></h3>
+
+                            <%if(item.sale_price) { %>
+                                <h3>$<strong class="red"><%= item.sale_price %></strong></h3>
+                            <h3 style="text-decoration:line-through">$<strong class="red"><%= item.price %></strong>
+                            </h3>
+                            <% }else{ %>
+                            <h3>$<strong class="red"><%= item.price %></strong>
+                            </h3>
+                            <% } %>
+
+
                             <span><%= item.name %></span>
                             <i><img src="images/star.png" /></i>
                             <i><img src="images/star.png" /></i>
                             <i><img src="images/star.png" /></i>
                             <i><img src="images/star.png" /></i>
+
+                            <form action="/add_to_cart" method="post">
+                                <input type="hidden" name="id" value="<%= item.id %>">
+                                <input type="hidden" name="name" value="<%= item.name %>">
+                                <input type="hidden" name="price" value="<%= item.price %>">
+                                <input type="hidden" name="sale_price" value="<%= item.sale_price %>">
+                                <input type="hidden" name="quantity" value="1">
+                                <input type="hidden" name="image" value="<%= item.image %>">
+                                <input type="submit" value="Add to cart" class="btn btn-primary">
+                            </form>
                         </div>
                     </div>
                     <% }) %>
@@ -244,7 +271,10 @@
                             <div class="full testimonial_cont text_align_center cross_layout">
                                 <div class="cross_inner">
                                     <h3>Due markes<br><strong class="ornage_color">Rental</strong></h3>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit ess</i>
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+                                        incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
+                                        nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                                        Duis aute irure dolor in reprehenderit in voluptate velit ess</i>
                                     </p>
                                     <div class="full text_align_center margin_top_30">
                                         <img src="icon/testimonial_qoute.png">
@@ -262,7 +292,10 @@
                             <div class="full testimonial_cont text_align_center cross_layout">
                                 <div class="cross_inner">
                                     <h3>Due markes<br><strong class="ornage_color">Rental</strong></h3>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit ess</i>
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+                                        incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
+                                        nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                                        Duis aute irure dolor in reprehenderit in voluptate velit ess</i>
                                     </p>
                                     <div class="full text_align_center margin_top_30">
                                         <img src="icon/testimonial_qoute.png">
@@ -281,7 +314,10 @@
                             <div class="full testimonial_cont text_align_center cross_layout">
                                 <div class="cross_inner">
                                     <h3>Due markes<br><strong class="ornage_color">Rental</strong></h3>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit ess</i>
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+                                        incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
+                                        nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                                        Duis aute irure dolor in reprehenderit in voluptate velit ess</i>
                                     </p>
                                     <div class="full text_align_center margin_top_30">
                                         <img src="icon/testimonial_qoute.png">
@@ -342,7 +378,8 @@
                                 <h3>Address</h3>
                                 <span>Healing Center, 176 W Streetname,New York, NY 10014, US</span>
                                 <p>(+71) 8522369417
-                                    <br>demo@gmail.com</p>
+                                    <br>demo@gmail.com
+                                </p>
                             </div>
                             <ul class="location_icon">
                                 <li> <a href="#"><i class="fa fa-facebook-f"></i></a></li>
@@ -354,9 +391,9 @@
                                 <ul class="link">
                                     <li> <a href="#">Home</a></li>
                                     <li> <a href="#">About</a></li>
-                                    
+
                                     <li> <a href="#">Brand </a></li>
-                                    <li> <a href="#">Specials  </a></li>
+                                    <li> <a href="#">Specials </a></li>
                                     <li> <a href="#"> Contact us</a></li>
                                 </ul>
                             </div>
@@ -385,16 +422,16 @@
     <script src="js/owl.carousel.js"></script>
     <script src="https:cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.js"></script>
     <script>
-        $(document).ready(function() {
+        $(document).ready(function () {
             $(".fancybox").fancybox({
                 openEffect: "none",
                 closeEffect: "none"
             });
 
-            $(".zoom").hover(function() {
+            $(".zoom").hover(function () {
 
                 $(this).addClass('transition');
-            }, function() {
+            }, function () {
 
                 $(this).removeClass('transition');
             });
